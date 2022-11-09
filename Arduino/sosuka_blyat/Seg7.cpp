@@ -1,7 +1,10 @@
+#include <Arduino.h>
 #include "Seg7.h"
 
-Seg7::Seg7(int datpin, int clkpin, int opepin, int numof, int &dispval[], bool disping){
-  pins={datpin, clkpin, opepin};
+Seg7::Seg7(int datpin, int clkpin, int opepin, int numof, int dispval, bool disping){
+  pins[0] = datpin;
+  pins[1] = clkpin;
+  pins[2] = opepin;
   for(int i=0;i<3;i++){
     pinMode(pins[i],OUTPUT);
   }
