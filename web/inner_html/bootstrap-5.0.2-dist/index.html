@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>CSS基礎</title>
+    <style>
+  @keyframes bounce {
+    0 {
+      transform: translateY(0) scale(1);
+    }
+    25% {
+      transform: translateY(-16px) scale(1);
+    }
+    50% {
+      transform: translateY(0) scale(1);
+    }
+    75% {
+      transform: translateY(0) scale(1.5, 0.75);
+    }
+    to {
+      transform: translateY(0) scale(1);
+    }
+  }
+  @keyframes bounx {
+    0 {
+      transform: translateX(0) scale(1);
+    }
+    25% {
+      transform: translateX(0) scale(1);
+    }
+    50% {
+      transform: translateX(0) scale(1);
+    }
+    75% {
+      transform: translateX(0) scale(0.75, 10);
+    }
+    to {
+      transform: translateX(0) scale(1);
+    }
+  }
+  @keyframes compressouth {
+    0 {
+      transform: translateX(0) scale(1);
+    }
+    10% {
+      transform: translateX(0) scale(2, 0.8);
+    }
+    50% {
+      transform: translateX(0) scale(5, 0.02);
+    }
+    90% {
+      transform: translateX(0) scale(2, 0.8);
+    }
+    to {
+      transform: translateX(0) scale(1);
+    }
+  }
+  @keyframes moveuth {
+    0 {
+      transform: translateX(0) scale(1);
+    }
+    25% {
+      transform: translateX(10) scale(0.8);
+    }
+    50% {
+      transform: translateX(0) scale(0.1);
+    }
+    75% {
+      transform: translateX(-10) scale(0.8);
+    }
+    to {
+      transform: translateX(0) scale(1);
+    }
+  }
+  @keyframes odori {
+    0 {
+      transform: rotate(0) scale(1);
+    }
+    25% {
+      transform: rotate(30deg) scale(1, 0.4);
+    }
+    50% {
+      transform: rotate(0) scale(1);
+    }
+    75% {
+      transform: rotate(-30deg) scale(1, 0.4);
+    }
+    to {
+      transform: rotate(0) scale(1);
+    }
+  }
+  
+  @keyframes rotwtf {
+    0 {
+      transform: rotate(0) scale(1);
+    }
+    95% {
+      transform: rotate(-45deg) scale(1, 1.5);
+    }
+    to {
+      transform: rotate(0) scale(1);
+    }
+  }
+  @keyframes usui {
+    0 {
+      opacity: 1 
+    }
+    95% {
+      opacity: 0.2
+    }
+    to {
+      opacity: 1
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform:rotate(0)
+    }
+    to {
+      transform:rotate(360deg)
+    }
+  }
+  @keyframes rainbow {
+    0% {
+      filter:hue-rotate(0deg) contrast(150%) saturate(150%)
+    }
+    to {
+      filter:hue-rotate(360deg) contrast(150%) saturate(150%)
+    }
+  }
+  .red {
+    color: red;
+    font-weight: 900;
+    font-size: 2em;
+  }
+  .bounce {
+    display: inline-block;
+    animation: 0.75s linear 0s infinite normal none running bounce;
+    transform-origin: center bottom 0;
+  }
+  .bounx {
+    display: inline-block;
+    animation: 0.75s linear 0s infinite normal none running bounx;
+    transform-origin: center bottom 0; 
+  }
+  .compressouth {
+    display: inline-block;
+    animation: 0.75s linear 0s infinite normal none running compressouth;
+    transform-origin: center bottom 0; 
+  }
+  .moveuth {
+    display: inline-block;
+    animation: 0.75s linear 0s infinite normal none running moveuth;
+    transform-origin: center bottom 0; 
+  }
+  .odori {
+    display: inline-block;
+    animation: 1.5s linear 0s infinite normal none running odori;
+    transform-origin: center bottom 0; 
+  }
+  .tkhshdmi{
+    display: inline-block;
+    background-color: #dd0000;
+    transform-origin: center bottom 0;
+    animation: 1.5s linear 0s infinite normal none running rotwtf;
+  }
+  .tkhshdmi img{
+    display: block;
+    animation: 1.5s linear 0s infinite normal none running usui;
+  }
+  .spin {
+    display: inline-block;
+    animation: 1.5s linear 0s infinite normal none running spin;
+  }
+  .spinr {
+    display: inline-block;
+    animation: 1.5s linear 0s infinite normal none running spin;
+    animation-direction: reverse;
+  }
+  .rainbow {
+    animation: 1s linear 0s infinite normal none running rainbow;
+  }
+</style>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <h1 class="bounx">Hello, world!</h1>
+    <p class="odori">おはよう</p>
+    <p class="compressouth">こんにちは</p>
+    <p class="moveuth">こんばんは</p>
+    <img class="tkhshdmi" src="./wallpaper3.png" width="300">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
