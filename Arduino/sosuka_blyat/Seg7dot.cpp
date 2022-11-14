@@ -2,7 +2,7 @@
 #include "Seg7.h"
 #include "Seg7dot.h"
 
-Seg7dot::reflect() override{
+void Seg7dot::reflect() override{
   digitalWrite(pins[1],0);
   digitalWrite(pins[2],enable);
   for(int nowdig=numdig-1;nowdig>=0;nowdig--){

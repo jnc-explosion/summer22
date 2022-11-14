@@ -22,19 +22,19 @@ GameCtl::GameCtl(int seed){
   points=0;
 }
 
-GameCtl::chanval(){
+void GameCtl::chanval(){
   value[0]=randomise(9);
   value[1]=randomise(9)%value[0];
 }
 
-GameCtl::chandisp(){
+void GameCtl::chandisp(){
   gseg.change(0,value[0]);
   pseg.change(1,value[1]);
   gseg.reflect();
   pseg.reflect();
 }
 
-GameCtl::cycle(){
+void GameCtl::cycle(){
   cycling=true;
   gseg.display(true);
   chanval();
@@ -54,14 +54,14 @@ GameCtl::cycle(){
   over();
 }
 
-GameCtl::reloadTime(){
+void GameCtl::reloadTime(){
   time--;
   gseg.change(0,time%10);
   gseg.reflect();
   return;
 }
 
-GameCtl::over(){
+void GameCtl::over(){
   gseg.display(false);
   pseg.change(0,points/10);
   pseg.change(1,points%10);
@@ -75,13 +75,13 @@ GameCtl::over(){
   }
 }
 
-GameCtl::swget(){
+void GameCtl::swget(){
   if(!cycling) return;
   swstate=(digitalRead(2)==1);
   return;
 }
 
-GameCtl::confirm(){
+void GameCtl::confirm(){
   cycling=false;
 }
 
@@ -100,17 +100,7 @@ bool issosu(){
   return sosumap[ans];
 }
 
-GameCtl::swcut(){
-  digitalWrite(4,0);
-  digitalWrite(5,0);
-}
-
-GameCtl::swchange(){
-  digitalWrite(4+(int)swstate, 1);
-  digitalWrite(5-(int)swstate, 0);
-}
-
-GameCtl::exact(){
+void GameCtl::exact(){
   if(sosuka&&swstate){
     points++;
     return;

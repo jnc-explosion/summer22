@@ -4,26 +4,24 @@
 class GameCtl {
   public:
     GameCtl(int seed);
-    void chanval();
+    void change();
     void cycle();
+
+  private:
+    volatile bool swstate;
+    volatile bool cycling;
+    int value[2];
+    int time;
+    int points;
+    int oper;
+    bool sosumap[19];
+    bool sosuka;
+    int randomise(int limit);
+    bool issosu();
+    void exact();
     void reloadTime();
     void over();
     void swget();
-
-  private:
-    int randomise(int limit);
-    bool sub;
-    bool sosumap[19];
-    volatile bool swstate;
-    bool issosu();
-    bool sosuka;
-    volatile bool cycling;
-    int value[2];
-    void swcut();
-    void swchange();
-    void exact();
-    int time;
-    int points;
 };
 
 #endif
