@@ -105,12 +105,72 @@
         </div>
       </div>
     </div>
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">人民购买ツ゚ヌ亍ム</h1>
+        <p class="col-md-8 fs-4">贵樣！ここて购买ずゑ（しなさい）</p>
+        <button class="btn btn-primary btn-lg" type="button" onclick="location.href='./pricing/cjp.html'">怪日语</button>
+      </div>
+    </div>
+    
+    <div class="row align-items-md-stretch mb-4">
+      <div class="col-md-3">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>大先生</h2>
+          <p>語録ランダマイズ出力</p>
+          <p>
+            <button class="btn btn-outline-light" type="button" onclick="inr()">教え子</button>
+            <button class="btn btn-outline-light" type="button" onclick="dcr()">退官</button>
+          </p>
+          <p>
+            <button class="btn btn-outline-success" type="button" onclick="ans()">奇跡の復活</button>
+          </p>
+          <p>
+            <button class="btn btn-outline-danger" type="button" onclick="clr()">それに比べて</button>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="h-100 p-5 bg-light border rounded-3" id="hdmiArea">
+          
+        </div>
+      </div>
+    </div>
 
     <footer class="pt-3 mt-4 text-muted border-top">
-      &copy; 2022 יְרוּשָׁלַיִם
+      &copy; 2022 李斉均
     </footer>
   </div>
 </main>
+
+<script>
+  let str="",dict="情けない凋落の「失われた30年」でした。";
+  function inr(){
+    str+=dict[grInt(20)];
+    hdmiArea.innerHTML=str;
+  }
+  
+  function dcr(){
+    str=str.slice(0,-1);
+    hdmiArea.innerHTML=str;
+  }
+  
+  function clr(){
+    if(window.confirm("私のちょい前時代たる入力情報は失われます。")){
+      str="";
+      hdmiArea.innerHTML=str;
+    }
+  }
+  
+  function ans(){
+    str+=dict;
+    hdmiArea.innerHTML=str;
+  }
+  
+  function grInt(max) {
+      return Math.floor(Math.random() * max);
+  }
+</script>
 
 
     
