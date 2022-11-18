@@ -9,7 +9,6 @@ GameCtl::GameCtl(int seed){
   Seg7 gseg(9,10,11,2,0,false);
   pinMode(2,INPUT_PULLUP);  // -+- [interrupts]
   pinMode(3,INPUT_PULLUP);  // -+
-  pinMode(19,INPUT_PULLUP); // -+
   pinMode(4,OUTPUT);
   pinMode(5,OUTPUT);
   sosumap={0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0}

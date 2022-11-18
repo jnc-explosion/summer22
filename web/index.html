@@ -89,9 +89,9 @@
       </div>
     </div>
 
-    <div class="row align-items-md-stretch">
+    <div class="mb-4 row align-items-md-stretch">
       <div class="col-md-6">
-        <div class="h-100 p-5 text-bg-dark rounded-3">
+        <div class="h-100 p-5 text-light bg-dark rounded-3">
           <h2>旧サイト</h2>
           <p>一部界隈で大量に引用されています。</p>
           <button class="btn btn-outline-light" type="button" onclick="location.href='seikin/index.html'">今すぐアクセス</button>
@@ -105,11 +105,21 @@
         </div>
       </div>
     </div>
-    <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">人民购买ツ゚ヌ亍ム</h1>
-        <p class="col-md-8 fs-4">贵樣！ここて购买ずゑ（しなさい）</p>
-        <button class="btn btn-primary btn-lg" type="button" onclick="location.href='./pricing/cjp.html'">怪日语</button>
+
+    <div class="mb-4 row align-items-md-stretch">
+      <div class="col-md-7">
+        <div class="h-100 p-5 rounded-3">
+          <h2 class="display-5 fw-bold">人民购买ツ゚ヌ亍ム</h2>
+          <p class="col-md-8 fs-4">贵樣！ここて购买ずゑ（しなさい）</p>
+          <button class="btn btn-primary btn-lg" type="button" onclick="location.href='./pricing/cjp.html'">怪日语</button>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="h-100 p-5 text-warning bg-danger rounded-3">
+          <h2 class="display-5 fw-bold">起来得点</h2>
+          <p><button class="btn btn-outline-light btn-warning" type="button" onclick="riseup()">起来</button></p>
+          <div id=chiraiArea></div>
+        </div>
       </div>
     </div>
     
@@ -130,7 +140,7 @@
           </p>
         </div>
       </div>
-      <div class="col-md-7">
+      <div class="col-md-9">
         <div class="h-100 p-5 bg-light border rounded-3" id="hdmiArea">
           
         </div>
@@ -144,27 +154,39 @@
 </main>
 
 <script>
-  let str="",dict="情けない凋落の「失われた30年」でした。";
+  let strhdmi="",dicthdmi="情けない凋落の「失われた30年」でした。";
+  let strcr="",cntcr=0;
   function inr(){
-    str+=dict[grInt(20)];
-    hdmiArea.innerHTML=str;
+    strhdmi+=dicthdmi[grInt(20)];
+    hdmiArea.innerHTML=strhdmi;
   }
   
   function dcr(){
-    str=str.slice(0,-1);
-    hdmiArea.innerHTML=str;
+    strhdmi=strhdmi.slice(0,-1);
+    hdmiArea.innerHTML=strhdmi;
   }
   
   function clr(){
     if(window.confirm("私のちょい前時代たる入力情報は失われます。")){
-      str="";
-      hdmiArea.innerHTML=str;
+      strhdmi="";
+      hdmiArea.innerHTML=strhdmi;
     }
   }
   
   function ans(){
-    str+=dict;
-    hdmiArea.innerHTML=str;
+    strhdmi+=dicthdmi;
+    hdmiArea.innerHTML=strhdmi;
+  }
+
+  function riseup(){
+    strcr+="起来 ";
+    cntcr++;
+    if(cntcr===4){
+      strcr=strcr.slice(0,-12);
+      strcr+="前进 ";
+      cntcr=0;
+    }
+    chiraiArea.innerHTML=strcr;
   }
   
   function grInt(max) {
