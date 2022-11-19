@@ -1,12 +1,13 @@
+#define LIMIT_TIME
+
 #include <Arduino.h>
 #include <MsTimer2.h>
 #include "GameCtl.h"
-#include "Seg7.h"
-#include "Seg7dot.h"
+#include "DispCtl.h"
+
+DispCtl dctl=DispCtl();
 
 GameCtl::GameCtl(int seed){
-  Seg7dot pseg(6,7,8,2,0,true);
-  Seg7 gseg(9,10,11,2,0,false);
   pinMode(2,INPUT_PULLUP);  // -+- [interrupts]
   pinMode(3,INPUT_PULLUP);  // -+
   pinMode(4,OUTPUT);
@@ -17,35 +18,26 @@ GameCtl::GameCtl(int seed){
   value[1]=(seed+analogRead(1))%10;
   sub=randomise(seed)%2;
   sosuka=issosu();
-  time=99;
+  time=LIMIT_TIME;
   points=0;
 }
 
-void GameCtl::chanval(){
+void GameCtl::change(){
   value[0]=randomise(9);
   value[1]=randomise(9)%value[0];
 }
 
-void GameCtl::chandisp(){
-  gseg.change(0,value[0]);
-  pseg.change(1,value[1]);
-  gseg.reflect();
-  pseg.reflect();
-}
-
 void GameCtl::cycle(){
   cycling=true;
-  gseg.display(true);
-  chanval();
-  chandisp();
+  change();
+  dctr.change(1,value[0],value[1]);
   MsTimer2::set(100, reloadTime);
   MsTimer2::start();
   while(time<0){
     if(!cycling){
       MsTimer2::stop();
       exact();
-      time=99;
-      gseg.display(false);
+      time=LIMIT_TIME;
       delay(4000);
       return;
     }
@@ -84,12 +76,12 @@ void GameCtl::confirm(){
   cycling=false;
 }
 
-int randomise(int limit){
+int GameCtl::randomise(int limit){
   if(limit>value[0]) randomSeed(analogRead(0));
   return random(0, limit);
 }
 
-bool issosu(){
+bool GameCtl::issosu(){
   int ans=value[0];
   if(sub){
     ans-=value[1];

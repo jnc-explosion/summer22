@@ -9,7 +9,7 @@ void Seg7dot::reflect() override{
     byte huhyuu = digits[status[nowdig]];
     if(nowdig==0) huhyuu++;
     for(byte mask=0b10000000;mask!=0;mask>>=1){
-      digitalWrite(pins[0],huhyuu&mask);
+      digitalWrite(pins[0],(huhyuu&mask)^ud);
       digitalWrite(pins[1],1);
       digitalWrite(pins[1],0);
     }

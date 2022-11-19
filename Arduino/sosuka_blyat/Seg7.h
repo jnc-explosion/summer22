@@ -3,15 +3,15 @@
 
 class Seg7 {
   public:
-    Seg7(int datpin, int clkpin, int opepin, int numof, int dispval, bool disping);
+    Seg7(int datpin, int clkpin, int opepin, bool disping, bool updown);
     void change(int which,int disp);
     void display(bool enbl);
     virtual void reflect();
 
   protected:
-    int numdig;
-    int *status;
+    int status[2];
     bool enable;
+    bool ud;
     int pins[3];
     byte digits[];
 };

@@ -4,8 +4,10 @@
 class DispCtl {
   public:
     DispCtl();
-    void change();
-    void reflect();
+    void change(int type,int s1,int s2);
+    void chika(int wait);
+  private:
+    void reflect(int type);
 };
 
 #endif
