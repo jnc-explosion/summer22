@@ -117,7 +117,8 @@
       <div class="col-md-5">
         <div class="h-100 p-5 text-warning bg-danger rounded-3">
           <h2 class="display-5 fw-bold">起来得点</h2>
-          <p><button class="btn btn-outline-light btn-warning" type="button" onclick="riseup()">起来</button></p>
+          <p><button class="btn btn-outline-light btn-warning" type="button" onclick="riseup()">我们万众一心</button></p>
+          <div id=socialCreditArea class="fs-3 fw-bolder"></div>
           <div id=chiraiArea></div>
         </div>
       </div>
@@ -155,7 +156,7 @@
 
 <script>
   let strhdmi="",dicthdmi="情けない凋落の「失われた30年」でした。";
-  let strcr="",cntcr=0;
+  let strcr="<div class='fw-bold'> </div>",cntcr=0;
   function inr(){
     strhdmi+=dicthdmi[grInt(20)];
     hdmiArea.innerHTML=strhdmi;
@@ -181,11 +182,11 @@
   function riseup(){
     strcr+="起来 ";
     cntcr++;
-    if(cntcr===4){
-      strcr=strcr.slice(0,-12);
-      strcr+="前进 ";
-      cntcr=0;
+    if(cntcr%4===0){
+      strcr=strcr.slice(0,-(12+6));
+      strcr+="前进 </div>";
     }
+    socialCreditArea.innerHTML="SocialCredit:"+cntcr;
     chiraiArea.innerHTML=strcr;
   }
   
